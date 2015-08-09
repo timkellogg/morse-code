@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+	head
+		title Morse Code Translator
+		link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
+	body
+		div.container
+			div.row
+				h1.text-center Translate Text into Morse Code!
+				form(name="translate", action="/translation", method="get")
+					div.form-group
+						label(for="input_text") Enter the text you would like translated into Morse Code! 
+						textarea.form-control(type="text", name="input_text", rows="10")
+					div.row.text-center
+						button.btn.btn-primary(type="submit") Translate 
+
+
+
