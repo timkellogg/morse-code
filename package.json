@@ -12,6 +12,7 @@
   "author": "Tim Kellogg",
   "license": "MIT",
   "dependencies": {
+    "baudio": "^2.1.2",
     "body-parser": "^1.13.3",
     "chai": "^3.2.0",
     "express": "^4.13.3",

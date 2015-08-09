@@ -1,9 +1,9 @@
 var express    = require('express'),
     jade       = require('jade'),
     bodyParser = require('body-parser'),
+    sfx        = require('sfx');
     morseCode  = require('./lib/translateMorseCode'),
     playSound  = require('./lib/playSound'),
-    sfx        = require('sfx'),
     app        = express();
 
 app.use(bodyParser.urlencoded({ extended: true })); 
@@ -16,16 +16,13 @@ app.get('/', function(req, res) {
 });
 
 app.get('/translation', function(req, res) {
-
-	var untranslated = req.query.input_text
+	var untranslated = req.query.input_text;
 	var translated = morseCode.translate(untranslated);
 	var sounds = playSound.convert(translated);
-
-	// play sounds  
-	// for (var i = 4; i < sounds.length; i++) {
-	// 	sounds[i]();
-	// }
 	
+	for (var i = 0; i < sounds.length; i++ ) {
+		sounds[i]();
+	}
 	res.render('translation', { output: translated });
 });
 
